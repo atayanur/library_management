@@ -37,7 +37,7 @@ session_start();
 
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
-           
+            
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
                 <div>Perpustakaan</div>
             </a>
@@ -132,7 +132,7 @@ session_start();
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
             </div>
         </ul>
-        
+       
         <div id="content-wrapper" class="d-flex flex-column">
 
             
@@ -151,7 +151,6 @@ session_start();
                     
                     <ul class="navbar-nav ml-auto">
                         
-
                         <div class="topbar-divider d-none d-sm-block"></div>
 
                         
@@ -278,15 +277,14 @@ session_start();
                         </div>
                     </div>
                 </div>
-                
-
+               
 
 
 
 
 
             </div>
-           
+            
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
@@ -294,13 +292,13 @@ session_start();
                     </div>
                 </div>
             </footer>
-            
+           
 
         </div>
-       
+        
 
     </div>
-    
+   
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
     </a>
@@ -314,7 +312,7 @@ session_start();
     
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-    
+   
     <script src="js/sb-admin-2.min.js"></script>
 
     
