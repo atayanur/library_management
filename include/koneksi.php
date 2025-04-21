@@ -3,7 +3,7 @@
 $server = "localhost";
 $user = "root";
 $pass = "";
-$database = "perpustakaan";
+$database = "library_management";
 
 $koneksi = mysqli_connect($server, $user, $pass, $database);
 
