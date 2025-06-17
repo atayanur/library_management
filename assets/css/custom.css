@@ -1,0 +1,57 @@
+/* Latar sidebar */
+.bg-menu-theme {
+    background-color: #fce7f3 !important; 
+  }
+  
+  /* Warna teks menu */
+  .menu-link {
+    color: #831843 !important; 
+  }
+  
+  /* Warna ikon menu */
+  .menu-icon {
+    color: #9d174d !important;
+  }
+  
+  /* Warna hover menu */
+  .menu-link:hover {
+    background-color: #fbcfe8 !important;
+    color: #701a37 !important;
+  }
+  
+  /* Warna teks brand */
+  .app-brand-text {
+    color: #9d174d !important;
+  }
+  
+  /* Tombol utama (pink soft) */
+  .btn-primary {
+    background-color: #ec4899 !important;
+    border-color: #ec4899 !important;
+  }
+  
+  .btn-primary:hover {
+    background-color: #db2777 !important;
+    border-color: #db2777 !important;
+  }
+  
+  /* Latar belakang halaman konten */
+  .layout-page {
+    background-color: #fff1f2 !important;
+  }
+  
+  
+  /* Badge status 
+  .badge.bg-success {
+    background-color: #f472b6 !important;
+    color: white !important;
+  }
+  .badge.bg-info {
+    background-color: #f9a8d4 !important;
+    color: white !important;
+  }
+  .badge.bg-warning {
+    background-color: #fce7f3 !important;
+    color: #831843 !important;
+  }
+  
