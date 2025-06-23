@@ -6,6 +6,16 @@ $anggota_id = $_SESSION['user_id'] ?? null;
 
 // Ambil semua data buku
 $query = "SELECT * FROM buku";
+
+$highlight_id = $_GET['highlight_id'] ?? null;
+
+// Ambil data buku
+if ($highlight_id) {
+    $query = "SELECT * FROM buku WHERE buku_id = $highlight_id";
+} else {
+    $query = "SELECT * FROM buku";
+}
+
 $result = $conn->query($query);
 ?>
 
@@ -14,6 +24,7 @@ $result = $conn->query($query);
 <head>
     <title>Daftar Buku</title>
     <style>
+
         table, th, td {
             border: 1px solid black;
             border-collapse: collapse;
@@ -22,6 +33,11 @@ $result = $conn->query($query);
         }
         img {
             height: 150px;
+
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+
         }
         .notification.success {
             background-color: #d4edda;
@@ -35,12 +51,57 @@ $result = $conn->query($query);
             margin: 10px 0;
             color: red;
         }
+        .book-card {
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
+            box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+        }
+        .book-cover {
+            height: 180px;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+        .book-title {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .book-info {
+            margin: 5px 0;
+        }
+        .action-btn {
+            margin-top: 10px;
+        }
+        .action-btn a {
+            background-color: #007bff;
+            color: white;
+            padding: 8px 14px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        .action-btn a:hover {
+            background-color: #0056b3;
+        }
+        .btn-back {
+            background-color: #6c757d;
+            color: white;
+            padding: 8px 14px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+        .btn-back:hover {
+            background-color: #5a6268;
+        }
+>>>>>>> 4fbe24f (memperbaiki)
     </style>
 </head>
 <body>
 
 <?php
-// Tampilkan notifikasi dari session
+
 if (isset($_SESSION['notification'])) {
     $notif = $_SESSION['notification'];
     echo '<div class="notification ' . $notif['type'] . '">' . $notif['message'] . '</div>';
@@ -98,6 +159,28 @@ if (isset($_SESSION['notification'])) {
         </tr>
     <?php endwhile; ?>
 </table>
+<?php if ($highlight_id): ?>
+    <a href="buku.php" class="btn-back">Lihat Semua Buku</a>
+<?php endif; ?>
+
+<?php while ($row = $result->fetch_assoc()) : ?>
+    <div class="book-card">
+        <?php if (!empty($row['cover'])): ?>
+            <img class="book-cover" src="uploads/<?= $row['cover'] ?>" alt="cover">
+        <?php else: ?>
+            <p>Tidak ada cover</p>
+        <?php endif; ?>
+
+        <div class="book-title"><?= htmlspecialchars($row['judul']) ?></div>
+        <div class="book-info"><strong>Penulis:</strong> <?= htmlspecialchars($row['penulis']) ?></div>
+        <div class="book-info"><strong>Tahun Publikasi:</strong> <?= $row['tahun_publikasi'] ?></div>
+        <div class="book-info"><strong>Kategori:</strong> <?= htmlspecialchars($row['kategori'] ?? '-') ?></div>
+
+        <div class="action-btn">
+            <a href="edit.php?id=<?= $row['buku_id'] ?>">Update</a>
+        </div>
+    </div>
+<?php endwhile; ?>
 
 </body>
 </html>

@@ -138,7 +138,6 @@ if (isset($_POST['update_stok'])) {
 
   if ($role === 'admin') {
 ?>
-    <!-- Admin: Form update stok -->
     <form method="POST">
         <input type="hidden" name="buku_id" value="<?= $buku['buku_id']; ?>">
         <input type="number" name="stok" value="<?= $buku['stok']; ?>" min="0" class="form-control text-center mb-2">
@@ -146,6 +145,13 @@ if (isset($_POST['update_stok'])) {
           <i class="bx bx-refresh me-2"></i> Update Stok
         </button>
     </form>
+  
+    <form action="edit.php" method="GET">
+    <input type="hidden" name="id" value="<?= $buku['buku_id']; ?>">
+    <button type="submit" class="btn btn-primary btn-custom w-100">
+      <i class="bx bx-refresh me-2"></i> Update Stok
+    </button>
+</form>
 
 <?php
   } elseif ($role === 'anggota') {
